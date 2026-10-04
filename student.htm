@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student - My Program</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <a href="admin.htm">Special Program</a>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <i class="fa-solid fa-user"></i>
+
+        Student
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <div class="student-welcome">
+
+        <div>
+
+            <h1>My Weekly Program</h1>
+
+            <p>
+                Welcome back. Here is your program for this week.
+            </p>
+
+        </div>
+
+
+        <div class="current-week">
+
+            <span>WEEK</span>
+
+            <strong>1</strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-card">
+
+        <div class="progress-info">
+
+            <span>Weekly Progress</span>
+
+            <strong id="progressText">0%</strong>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+                style="width: 0%;">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PROGRAM -->
+
+    <section class="student-program">
+
+
+        <div class="table-container">
+
+            <table class="student-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Day</th>
+
+                        <th>
+                            <i class="fa-solid fa-book"></i>
+                            Memo
+                        </th>
+
+                        <th>
+                            <i class="fa-solid fa-rotate"></i>
+                            Review
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- MONDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Monday</strong>
+
+                            <small>Day 1</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 23 → Ayah 30
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 15 → Ayah 22
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- TUESDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Tuesday</strong>
+
+                            <small>Day 2</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 31 → Ayah 38
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 23 → Ayah 30
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- WEDNESDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Wednesday</strong>
+
+                            <small>Day 3</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 39 → Ayah 46
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 31 → Ayah 38
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- THURSDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Thursday</strong>
+
+                            <small>Day 4</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 47 → Ayah 54
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 39 → Ayah 46
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- FRIDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Friday</strong>
+
+                            <small>Day 5</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 55 → Ayah 62
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 47 → Ayah 54
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- SATURDAY -->
+
+                    <tr>
+
+                        <td class="student-day">
+
+                            <strong>Saturday</strong>
+
+                            <small>Day 6</small>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 63 → Ayah 70
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+
+                        <td class="task-cell">
+
+                            <div class="task-content">
+
+                                <div class="task-description">
+
+                                    Ayah 55 → Ayah 62
+
+                                </div>
+
+
+                                <button
+                                    class="complete-btn"
+                                    onclick="toggleTask(this)">
+
+                                    <i class="fa-regular fa-circle"></i>
+
+                                    <span>Not completed</span>
+
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+function toggleTask(button) {
+
+    button.classList.toggle("completed");
+
+
+    const icon = button.querySelector("i");
+    const text = button.querySelector("span");
+
+
+    if (button.classList.contains("completed")) {
+
+        icon.className = "fa-solid fa-circle-check";
+
+        text.textContent = "Completed";
+
+    }
+
+    else {
+
+        icon.className = "fa-regular fa-circle";
+
+        text.textContent = "Not completed";
+
+    }
+
+
+    updateProgress();
+
+}
+
+
+function updateProgress() {
+
+    const tasks =
+        document.querySelectorAll(".complete-btn");
+
+    const completed =
+        document.querySelectorAll(".complete-btn.completed");
+
+
+    const percentage =
+        Math.round(
+            (completed.length / tasks.length) * 100
+        );
+
+
+    document.getElementById("progressText")
+        .textContent = percentage + "%";
+
+
+    document.getElementById("progressFill")
+        .style.width = percentage + "%";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

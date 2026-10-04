@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Uncompleted Memo Tasks</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+          <style>
+/* =========================
+   TASK PAGE
+========================= */
+
+.tasks-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.tasks-header h1 {
+    font-size: 28px;
+
+    margin: 7px 0 5px;
+}
+
+
+.tasks-header p {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+.remaining-badge {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 10px 18px;
+
+    text-align: center;
+}
+
+
+.remaining-badge strong {
+    display: block;
+
+    font-size: 23px;
+}
+
+
+.remaining-badge span {
+    font-size: 11px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+.task-list-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+.memo-task {
+    display: grid;
+
+    grid-template-columns:
+        90px
+        150px
+        1fr
+        160px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+
+.memo-task:last-of-type {
+    border-bottom: none;
+}
+
+
+/* =========================
+   WEEK
+========================= */
+
+.task-week {
+    text-align: center;
+
+    border-right: 1px solid #eeeeee;
+
+    padding-right: 20px;
+}
+
+
+.task-week span {
+    display: block;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #9ca3af;
+
+    letter-spacing: .7px;
+}
+
+
+.task-week strong {
+    font-size: 22px;
+}
+
+
+/* =========================
+   DAY
+========================= */
+
+.task-day strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.task-day small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   PROGRAM
+========================= */
+
+.task-program span {
+    display: block;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    color: #9ca3af;
+
+    margin-bottom: 5px;
+}
+
+
+.task-program p {
+    font-size: 14px;
+
+    margin: 0;
+
+    color: #374151;
+}
+
+
+/* =========================
+   STATUS BUTTON
+========================= */
+
+.task-status {
+    text-align: right;
+}
+
+
+.task-btn {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #6b7280;
+
+    border-radius: 7px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    transition: .15s ease;
+}
+
+
+.task-btn:hover {
+    background: #f9fafb;
+
+    border-color: #9ca3af;
+}
+
+
+.task-btn.done {
+    background: #f0fdf4;
+
+    border-color: #bbf7d0;
+
+    color: #166534;
+}
+
+
+/* =========================
+   REMOVE ANIMATION
+========================= */
+
+.memo-task.removing {
+    opacity: 0;
+
+    transform: translateX(20px);
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-tasks {
+    min-height: 220px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 40px;
+}
+
+
+.empty-tasks > i {
+    font-size: 35px;
+
+    margin-bottom: 12px;
+}
+
+
+.empty-tasks h3 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+
+.empty-tasks p {
+    color: #9ca3af;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   BACK LINK
+========================= */
+
+.back-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 20px;
+
+    color: #6b7280;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+.back-link:hover {
+    color: #111827;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    .tasks-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .tasks-header h1 {
+        font-size: 23px;
+    }
+
+
+    .memo-task {
+        grid-template-columns:
+            65px
+            120px
+            1fr
+            145px;
+
+        min-width: 650px;
+    }
+
+
+    .task-list-card {
+        overflow-x: auto;
+    }
+
+}
+
+          </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <a href="admin.htm">Special Program</a>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>Student</span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="student-home">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="tasks-header">
+
+        <div>
+
+            <span class="welcome-label">
+                MY TASKS
+            </span>
+
+            <h1>
+                Uncompleted Memo
+            </h1>
+
+            <p>
+                Complete your remaining memo tasks.
+            </p>
+
+        </div>
+
+
+        <div class="remaining-badge">
+
+            <strong id="taskCount">
+                4
+            </strong>
+
+            <span>
+                remaining
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TASK LIST
+    ========================= -->
+
+    <section class="task-list-card">
+
+
+        <!-- TASK -->
+
+        <div class="memo-task"
+             data-task-id="1">
+
+
+            <div class="task-week">
+
+                <span>
+                    WEEK
+                </span>
+
+                <strong>
+                    10
+                </strong>
+
+            </div>
+
+
+            <div class="task-day">
+
+                <strong>
+                    Monday
+                </strong>
+
+                <small>
+                    Week 10 · Day 1
+                </small>
+
+            </div>
+
+
+            <div class="task-program">
+
+                <span>
+                    MEMO
+                </span>
+
+                <p>
+                    Ayah 23 → Ayah 30
+                </p>
+
+            </div>
+
+
+            <div class="task-status">
+
+                <button
+                    class="task-btn"
+                    onclick="markDone(this)">
+
+                    <i class="fa-regular fa-circle"></i>
+
+                    <span>
+                        Not completed
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TASK -->
+
+        <div class="memo-task"
+             data-task-id="2">
+
+
+            <div class="task-week">
+
+                <span>
+                    WEEK
+                </span>
+
+                <strong>
+                    11
+                </strong>
+
+            </div>
+
+
+            <div class="task-day">
+
+                <strong>
+                    Wednesday
+                </strong>
+
+                <small>
+                    Week 11 · Day 3
+                </small>
+
+            </div>
+
+
+            <div class="task-program">
+
+                <span>
+                    MEMO
+                </span>
+
+                <p>
+                    Ayah 31 → Ayah 38
+                </p>
+
+            </div>
+
+
+            <div class="task-status">
+
+                <button
+                    class="task-btn"
+                    onclick="markDone(this)">
+
+                    <i class="fa-regular fa-circle"></i>
+
+                    <span>
+                        Not completed
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TASK -->
+
+        <div class="memo-task"
+             data-task-id="3">
+
+
+            <div class="task-week">
+
+                <span>
+                    WEEK
+                </span>
+
+                <strong>
+                    11
+                </strong>
+
+            </div>
+
+
+            <div class="task-day">
+
+                <strong>
+                    Friday
+                </strong>
+
+                <small>
+                    Week 11 · Day 5
+                </small>
+
+            </div>
+
+
+            <div class="task-program">
+
+                <span>
+                    MEMO
+                </span>
+
+                <p>
+                    Ayah 39 → Ayah 46
+                </p>
+
+            </div>
+
+
+            <div class="task-status">
+
+                <button
+                    class="task-btn"
+                    onclick="markDone(this)">
+
+                    <i class="fa-regular fa-circle"></i>
+
+                    <span>
+                        Not completed
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TASK -->
+
+        <div class="memo-task"
+             data-task-id="4">
+
+
+            <div class="task-week">
+
+                <span>
+                    WEEK
+                </span>
+
+                <strong>
+                    12
+                </strong>
+
+            </div>
+
+
+            <div class="task-day">
+
+                <strong>
+                    Tuesday
+                </strong>
+
+                <small>
+                    Week 12 · Day 2
+                </small>
+
+            </div>
+
+
+            <div class="task-program">
+
+                <span>
+                    MEMO
+                </span>
+
+                <p>
+                    Ayah 47 → Ayah 54
+                </p>
+
+            </div>
+
+
+            <div class="task-status">
+
+                <button
+                    class="task-btn"
+                    onclick="markDone(this)">
+
+                    <i class="fa-regular fa-circle"></i>
+
+                    <span>
+                        Not completed
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-tasks"
+             id="emptyTasks"
+             style="display: none;">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>
+                All tasks completed!
+            </h3>
+
+            <p>
+                You have no uncompleted memo tasks.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- BACK -->
+
+    <a href="studentHome.htm"
+       class="back-link">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Home
+
+    </a>
+
+
+</main>
+
+
+
+<script>
+
+
+function markDone(button) {
+
+    const task = button.closest(".memo-task");
+
+
+    /*
+     * Change button appearance
+     */
+
+    button.classList.add("done");
+
+
+    button.innerHTML = `
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Completed</span>
+    `;
+
+
+    /*
+     * In the real application,
+     * send the change to Flask here:
+     *
+     * fetch("/api/student/task/1", {
+     *     method: "POST",
+     *     body: JSON.stringify({
+     *         memo_mark: true
+     *     })
+     * });
+     */
+
+
+    /*
+     * Remove task from the list
+     * after a short delay.
+     */
+
+    setTimeout(() => {
+
+        task.classList.add("removing");
+
+        setTimeout(() => {
+
+            task.remove();
+
+            updateTaskCount();
+
+        }, 250);
+
+    }, 500);
+
+}
+
+
+
+function updateTaskCount() {
+
+    const tasks =
+        document.querySelectorAll(".memo-task");
+
+
+    const count =
+        tasks.length;
+
+
+    document.getElementById("taskCount")
+        .textContent = count;
+
+
+    if (count === 0) {
+
+        document.getElementById("emptyTasks")
+            .style.display = "flex";
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

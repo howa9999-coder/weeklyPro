@@ -1,0 +1,576 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1f2937;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    height: 64px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+
+.brand {
+    font-size: 18px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.brand i {
+    font-size: 21px;
+}
+
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+
+    padding: 35px 25px 60px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.page-header h1 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+
+.page-header p {
+    color: #6b7280;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary {
+    border: none;
+    background: #111827;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.btn-primary:hover {
+    background: #374151;
+}
+
+
+.save-btn {
+    border: none;
+
+    background: #111827;
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+
+.icon-btn {
+    border: none;
+    background: transparent;
+
+    width: 35px;
+    height: 35px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+}
+
+
+.icon-btn:hover {
+    background: #f3f4f6;
+}
+
+
+.icon-btn.danger {
+    color: #dc2626;
+}
+
+
+/* =========================
+   WEEK CARD
+========================= */
+
+.week-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+}
+
+
+.week-header {
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.week-label {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: bold;
+    margin-right: 7px;
+}
+
+
+.week-number {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+.week-actions {
+    display: flex;
+    gap: 5px;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.program-table,
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.program-table th,
+.student-table th {
+    text-align: left;
+
+    background: #f9fafb;
+
+    padding: 13px 15px;
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.program-table td,
+.student-table td {
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 12px 15px;
+
+    vertical-align: middle;
+}
+
+
+.program-table tr:last-child td,
+.student-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+.day-column {
+    width: 130px;
+}
+
+
+.day-cell {
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   ADMIN TEXTAREA
+========================= */
+
+.program-table textarea {
+    width: 100%;
+
+    min-height: 65px;
+
+    resize: vertical;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    padding: 9px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+
+.program-table textarea:focus {
+    outline: none;
+
+    border-color: #6b7280;
+}
+
+
+/* =========================
+   WEEK FOOTER
+========================= */
+
+.week-footer {
+    border-top: 1px solid #e5e7eb;
+
+    padding: 13px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   STUDENT
+========================= */
+
+.student-welcome {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.student-welcome h1 {
+    font-size: 28px;
+
+    margin-bottom: 6px;
+}
+
+
+.student-welcome p {
+    color: #6b7280;
+}
+
+
+.current-week {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 12px 20px;
+
+    text-align: center;
+}
+
+
+.current-week span {
+    display: block;
+
+    font-size: 10px;
+
+    color: #9ca3af;
+
+    font-weight: bold;
+}
+
+
+.current-week strong {
+    font-size: 22px;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+}
+
+
+.progress-info strong {
+    font-size: 14px;
+}
+
+
+.progress-bar {
+    height: 8px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    background: #111827;
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================
+   STUDENT TABLE
+========================= */
+
+.student-table th {
+    padding: 15px;
+}
+
+
+.student-table th i {
+    margin-right: 5px;
+}
+
+
+.student-day {
+    width: 130px;
+
+    vertical-align: top !important;
+}
+
+
+.student-day strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.student-day small {
+    color: #9ca3af;
+
+    font-size: 12px;
+
+    display: block;
+
+    margin-top: 4px;
+}
+
+
+.task-cell {
+    min-width: 280px;
+}
+
+
+.task-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.task-description {
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.complete-btn {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    color: #6b7280;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    font-size: 12px;
+}
+
+
+.complete-btn:hover {
+    background: #f9fafb;
+}
+
+
+.complete-btn.completed {
+    color: #166534;
+
+    border-color: #bbf7d0;
+
+    background: #f0fdf4;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+
+    .container {
+        padding: 25px 12px;
+    }
+
+
+    .page-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .page-header h1,
+    .student-welcome h1 {
+        font-size: 22px;
+    }
+
+
+    .btn-primary {
+        padding: 9px 12px;
+    }
+
+
+    .week-header {
+        padding: 15px;
+    }
+
+
+    .week-footer {
+        padding: 12px 15px;
+    }
+
+
+    .student-welcome {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .student-table {
+        min-width: 700px;
+    }
+
+
+    .program-table {
+        min-width: 700px;
+    }
+
+}

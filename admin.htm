@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - Weekly Program</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <i class="fa-solid fa-graduation-cap"></i>
+        Special Program
+    </div>
+
+    <div class="user-area">
+        <i class="fa-solid fa-user-shield"></i>
+        Admin
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Weekly Program</h1>
+            <p>Manage the program for each week.</p>
+        </div>
+
+    </div>
+
+
+    <!-- WEEK  -->
+    <section class="week-card">
+
+        <div class="week-header">
+
+            <div>
+                <span class="week-label">WEEK</span>
+                <span class="week-number">1</span>
+            </div>
+
+            <div class="week-actions">
+                <button class="icon-btn" title="Save">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+
+                <button class="icon-btn danger" title="Delete">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table class="program-table">
+
+                <thead>
+                    <tr>
+                        <th class="day-column">Day</th>
+                        <th>Memo</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="day-cell">Monday</td>
+
+                        <td>
+                            <textarea
+                                placeholder="Enter memo program...">Ayah 23 - Ayah 30</textarea>
+                        </td>
+
+                        <td>
+                            <textarea
+                                placeholder="Enter review program...">Ayah 15 - Ayah 22</textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="day-cell">Tuesday</td>
+
+                        <td>
+                            <textarea placeholder="Enter memo program..."></textarea>
+                        </td>
+
+                        <td>
+                            <textarea placeholder="Enter review program..."></textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="day-cell">Wednesday</td>
+
+                        <td>
+                            <textarea placeholder="Enter memo program..."></textarea>
+                        </td>
+
+                        <td>
+                            <textarea placeholder="Enter review program..."></textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="day-cell">Thursday</td>
+
+                        <td>
+                            <textarea placeholder="Enter memo program..."></textarea>
+                        </td>
+
+                        <td>
+                            <textarea placeholder="Enter review program..."></textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="day-cell">Friday</td>
+
+                        <td>
+                            <textarea placeholder="Enter memo program..."></textarea>
+                        </td>
+
+                        <td>
+                            <textarea placeholder="Enter review program..."></textarea>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="day-cell">Saturday</td>
+
+                        <td>
+                            <textarea placeholder="Enter memo program..."></textarea>
+                        </td>
+
+                        <td>
+                            <textarea placeholder="Enter review program..."></textarea>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="week-footer">
+
+            <span>
+                <i class="fa-solid fa-circle-info"></i>
+                6 days
+            </span>
+
+            <a href="studentHome.htm" class="save-btn">
+                <i class="fa-solid fa-check"></i>
+                Save Week
+            </a href="studentHome.htm">
+
+        </div>
+
+    </section>
+
+
+
+
+</main>
+
+
+<script>
+
+function addWeek() {
+
+    // Later this will be a Flask request:
+    // fetch("/admin/add-week", { method: "POST" })
+
+    alert("A new week will be created here.");
+
+}
+
+</script>
+
+</body>
+</html>
