@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
 
@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Uncompleted Memo Tasks</title>
+    <title>مهام الحفظ غير المكتملة</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -45,7 +45,7 @@
 }
 
 
-.remaining-badge {
+.متبقية-badge {
     background: white;
 
     border: 1px solid #e5e7eb;
@@ -58,14 +58,14 @@
 }
 
 
-.remaining-badge strong {
+.متبقية-badge strong {
     display: block;
 
     font-size: 23px;
 }
 
 
-.remaining-badge span {
+.متبقية-badge span {
     font-size: 11px;
 
     color: #9ca3af;
@@ -116,7 +116,7 @@
 
 
 /* =========================
-   WEEK
+   الأسبوع
 ========================= */
 
 .task-week {
@@ -352,6 +352,27 @@
 
 }
 
+/* Arabic RTL adjustments */
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+.task-status {
+    text-align: left;
+}
+
+.task-week {
+    border-right: none;
+    border-left: 1px solid #eeeeee;
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.memo-task.removing {
+    transform: translateX(-20px);
+}
+
           </style>
 </head>
 
@@ -369,7 +390,7 @@
 
         <i class="fa-solid fa-graduation-cap"></i>
 
-        <a href="admin.htm">Special Program</a>
+        <a href="admin.htm">البرنامج الخاص</a>
 
     </div>
 
@@ -378,7 +399,7 @@
 
         <i class="fa-solid fa-user"></i>
 
-        <span>Student</span>
+        <span>الطالب</span>
 
     </div>
 
@@ -400,28 +421,28 @@
         <div>
 
             <span class="welcome-label">
-                MY TASKS
+                مهامي
             </span>
 
             <h1>
-                Uncompleted Memo
+                الحفظ غير المكتمل
             </h1>
 
             <p>
-                Complete your remaining memo tasks.
+                أكمل مهام الحفظ المتبقية.
             </p>
 
         </div>
 
 
-        <div class="remaining-badge">
+        <div class="متبقية-badge">
 
             <strong id="taskCount">
                 4
             </strong>
 
             <span>
-                remaining
+                متبقية
             </span>
 
         </div>
@@ -446,7 +467,7 @@
             <div class="task-week">
 
                 <span>
-                    WEEK
+                    الأسبوع
                 </span>
 
                 <strong>
@@ -459,11 +480,11 @@
             <div class="task-day">
 
                 <strong>
-                    Monday
+                    الاثنين
                 </strong>
 
                 <small>
-                    Week 10 · Day 1
+                    الأسبوع 10 · اليوم 1
                 </small>
 
             </div>
@@ -472,7 +493,7 @@
             <div class="task-program">
 
                 <span>
-                    MEMO
+                    الحفظ
                 </span>
 
                 <p>
@@ -491,7 +512,7 @@
                     <i class="fa-regular fa-circle"></i>
 
                     <span>
-                        Not completed
+                        غير مكتمل
                     </span>
 
                 </button>
@@ -512,7 +533,7 @@
             <div class="task-week">
 
                 <span>
-                    WEEK
+                    الأسبوع
                 </span>
 
                 <strong>
@@ -525,11 +546,11 @@
             <div class="task-day">
 
                 <strong>
-                    Wednesday
+                    الأربعاء
                 </strong>
 
                 <small>
-                    Week 11 · Day 3
+                    الأسبوع 11 · اليوم 3
                 </small>
 
             </div>
@@ -538,7 +559,7 @@
             <div class="task-program">
 
                 <span>
-                    MEMO
+                    الحفظ
                 </span>
 
                 <p>
@@ -557,7 +578,7 @@
                     <i class="fa-regular fa-circle"></i>
 
                     <span>
-                        Not completed
+                        غير مكتمل
                     </span>
 
                 </button>
@@ -578,7 +599,7 @@
             <div class="task-week">
 
                 <span>
-                    WEEK
+                    الأسبوع
                 </span>
 
                 <strong>
@@ -591,11 +612,11 @@
             <div class="task-day">
 
                 <strong>
-                    Friday
+                    الجمعة
                 </strong>
 
                 <small>
-                    Week 11 · Day 5
+                    الأسبوع 11 · اليوم 5
                 </small>
 
             </div>
@@ -604,7 +625,7 @@
             <div class="task-program">
 
                 <span>
-                    MEMO
+                    الحفظ
                 </span>
 
                 <p>
@@ -623,7 +644,7 @@
                     <i class="fa-regular fa-circle"></i>
 
                     <span>
-                        Not completed
+                        غير مكتمل
                     </span>
 
                 </button>
@@ -644,7 +665,7 @@
             <div class="task-week">
 
                 <span>
-                    WEEK
+                    الأسبوع
                 </span>
 
                 <strong>
@@ -657,11 +678,11 @@
             <div class="task-day">
 
                 <strong>
-                    Tuesday
+                    الثلاثاء
                 </strong>
 
                 <small>
-                    Week 12 · Day 2
+                    الأسبوع 12 · اليوم 2
                 </small>
 
             </div>
@@ -670,7 +691,7 @@
             <div class="task-program">
 
                 <span>
-                    MEMO
+                    الحفظ
                 </span>
 
                 <p>
@@ -689,7 +710,7 @@
                     <i class="fa-regular fa-circle"></i>
 
                     <span>
-                        Not completed
+                        غير مكتمل
                     </span>
 
                 </button>
@@ -709,11 +730,11 @@
             <i class="fa-solid fa-circle-check"></i>
 
             <h3>
-                All tasks completed!
+                تم إنجاز جميع المهام!
             </h3>
 
             <p>
-                You have no uncompleted memo tasks.
+                ليس لديك أي مهام حفظ غير مكتملة.
             </p>
 
         </div>
@@ -730,7 +751,7 @@
 
         <i class="fa-solid fa-arrow-left"></i>
 
-        Back to Home
+        العودة إلى الصفحة الرئيسية
 
     </a>
 
@@ -756,7 +777,7 @@ function markDone(button) {
 
     button.innerHTML = `
         <i class="fa-solid fa-circle-check"></i>
-        <span>Completed</span>
+        <span>مكتمل</span>
     `;
 
 
